@@ -1,29 +1,31 @@
 import java.util.Scanner;
-
-public class Rickshaw{
+public class Taxi{
     public static void main(String[] args){
-    Scanner input = new Scanner(System.in);
-
-    System.out.println("What is the distance you are travelling, in KM?");
-    int distance = input.nextInt();
-
-    System.out.println("How long might travelling there take in minutes?");
-    int time = input.nextInt();
-
-    System.out.println("Is it night right now? y/n");
-    String nightInput = input.next();
-    boolean isNight = nightInput.equals("y");
-
-    int baseFare = 50;
-    int perKm = 20;
-    int perMin = 5;
-
-    int price = baseFare + (distance * perKm) + (time * perMin);
-
-    if(isNight){
-        price = price + (price * 15 / 100);
-    }
-
-    System.out.println("Your final fare is: Rs. " + price);
+        Scanner scanner=new Scanner(System.in);
+        System.out.print("Enter distance in KM");
+        double distance=scanner.nextDouble();
+        System.out.print("Enter Time in Minutes");
+        double time=scanner.nextDouble();
+        System.out.print("Are you local(Yes/No)");
+        String local=scanner.nextLine();
+        boolean localtraveller=local.equalsIgnoreCase("yes") ?true:false;
+        System.out.print("Is it Night(Yes/No)");
+        String night=scanner.nextLine();
+        boolean localnight=local.equalsIgnoreCase("yes") ?true:false;
+        /// flare price
+        int baseflare=100;
+        int perkmflare=50;
+        int perminuteflare=10;
+        double flare= baseflare + (perkmflare*distance)+(perminuteflare*time);
+        /// if you are local 10percent
+        flare=(localtraveller)?flare*0.9:flare;
+        // if night traveller increase by 20percent
+        flare=(localnight)? flare*1.2:flare;
+        // output
+        System.out.println("Your total will be"+flare);
+        scanner.close();
+        
+        
     }
 }
+
