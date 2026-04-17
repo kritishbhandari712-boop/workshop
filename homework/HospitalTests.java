@@ -36,8 +36,8 @@ class Patient{
 }
 public class HospitalTests{
     public static void main(String[] args){
-        Patient a = new Patient("Saharsha",18,3,500.0);
-        Patient b = new Patient("Sujan",18,8,500.0);
+        Patient a = new Patient("Kritish",18,3,500.0);
+        Patient b = new Patient("Yogendra",18,8,500.0);
         a.description();
         a.calculateTotalBill();
         System.out.println("--------------------------------");
